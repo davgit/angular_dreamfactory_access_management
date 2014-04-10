@@ -1,0 +1,109 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a data-toggle="collapse" data-target="#set-role-body">
+                <h4 class="panel-title">Set Role</h4>
+            </a>
+        </div>
+        <div id="set-role-body" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <select-role roles="rolesDataArr" role-model="currentRoleId" label-text="Select Role"></select-role>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a data-toggle="collapse" data-target="#set-assignments-body">
+                <h4 class="panel-title">Set Assignments</h4>
+            </a>
+        </div>
+
+        <div id="set-assignments-body" class="panel-collapse collapse in">
+            <div class="panel-body">
+
+                <filter-users section-title="Filter Unassigned Users" filter-view-by="filter.uaViewBy"
+                              filter-prop="filter.uaUserProp" filter-value="filter.uaUserValue"
+                              order-by="filter.uaOrderBy" order-by-reverse="filter.uaOrderByReverse"
+                              unique-id="unassigned"></filter-users>
+
+
+                <filter-users section-title="Filter Assigned Users" filter-view-by="filter.aViewBy"
+                              filter-prop="filter.aUserProp"
+                              filter-value="filter.aUserValue"
+                              order-by="filter.aOrderBy" order-by-reverse="filter.aOrderByReverse"
+                              unique-id="assigned"></filter-users>
+
+
+                <div class="col-sm-5 col-xs-12 no-padding">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 style="display: inline" class="panel-title">Unassigned Users</h4>
+                            <button type="button" class="btn btn-default btn-xs pull-right"
+                                    data-ng-click="toggleAllUsers(usersWithOutRole)">Toggle All
+                            </button>
+                        </div>
+                        <div style="max-height: 350px; overflow-y: scroll">
+                            <table class="table">
+                                <tr>
+                                    <th data-ng-model="filter.uaViewBy"><strong>{{filter.uaViewBy}}</strong></th>
+                                    <th><strong>Current Role</strong></th>
+                                </tr>
+                                <tr data-ng-class="user.dfUISelected ? 'record-selected-role-user' : ''"
+                                    data-ng-click="toggleUserSelected(user)"
+                                    data-ng-repeat="user in usersWithOutRole | dfFilterBy:{'field':filter.uaUserProp, 'value':filter.uaUserValue} | orderObjectBy:filter.uaOrderBy:filter.uaOrderByReverse">
+                                    <td>
+                                        <span data-ng-if="filter.uaViewBy === 'email'">{{user.email}}</span>
+                                        <span data-ng-if="filter.uaViewBy === 'display_name'">{{user.display_name}}</span>
+                                        <span data-ng-if="filter.uaViewBy === 'id'">{{user.id}}</span>
+                                    </td>
+                                    <td>{{user.role_name}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="margin-bottom: 20px;" class="col-sm-2 col-xs-12">
+                    <button type="button" data-ng-click="assignRole()" class="btn btn-default btn-block"><i
+                            class="fa fa-forward"></i></button>
+                    <button type="button" data-ng-click="unassignRole()" class="btn btn-default btn-block"><i
+                            class="fa fa-backward"></i></button>
+                </div>
+
+
+                <div class="col-sm-5 col-xs-12 no-padding">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 style="display: inline" class="panel-title">Assigned Users</h4>
+                            <button type="button" class="btn btn-default btn-xs pull-right"
+                                    data-ng-click="toggleAllUsers(usersWithRole)">Toggle All
+                            </button>
+                        </div>
+                        <div style="max-height: 350px; overflow-y: scroll">
+                            <table class="table">
+                                <tr>
+                                    <th><strong>{{filter.aViewBy}}</strong></th>
+                                    <th><strong>Current Role</strong></th>
+                                </tr>
+                                <tr data-ng-class="user.dfUISelected ? 'record-selected-role-user' : ''"
+                                    data-ng-click="toggleUserSelected(user)"
+                                    data-ng-repeat="user in usersWithRole | dfFilterBy:{'field':filter.aUserProp, 'value':filter.aUserValue} | orderObjectBy:filter.aOrderBy:filter.aOrderByReverse">
+                                    <td>
+                                        <span data-ng-if="filter.aViewBy === 'email'">{{user.email}}</span>
+                                        <span data-ng-if="filter.aViewBy === 'display_name'">{{user.display_name}}</span>
+                                        <span data-ng-if="filter.aViewBy === 'id'">{{user.id}}</span>
+                                    </td>
+                                    <td>{{user.role_name}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,61 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-target="#create-role-body">
+            <h4 class="panel-title">Create Role</h4>
+        </a>
+    </div>
+    <div id="create-role-body" class="panel-collapse collapse in">
+        <div class="panel-body">
+
+            <div class="btn-toolbar">
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-default" data-ng-click="closeRole()">Close</button>
+                    <button type="button" class="btn btn-default" data-ng-click="createRole()">Create</button>
+                </div>
+            </div>
+
+            <hr/>
+
+
+            <!-- Create User Header -->
+            <div class="col-xs-12"><h3>Create Role: <span class="text-muted">{{role.name}}</span></h3></div>
+
+
+            <!-- Single role Edit Form -->
+            <form name="create-role">
+
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="role-name">Role Name</label>
+                        <input class="form-control" type="text" id="role-name"
+                               placeholder="Enter Role Name"
+                               data-ng-model="role.name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="first-name">Description</label>
+                        <input class="form-control" type="text" id="first-name" placeholder="Enter Description"
+                               data-ng-model="role.description">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role-active">Active</label>
+                        <input type="checkbox" id="role-active" data-ng-model="role.is_active">
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <div id="select-app">
+                            <select-app app-model="role.default_app_id" apps="apps"
+                                        label-text="Select a Default App"></select-app>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- End Single role Edit Form -->
+        </div>
+    </div>
+</div>
+<!-- End Single User Edit Display -->

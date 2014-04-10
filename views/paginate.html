@@ -1,0 +1,9 @@
+<div style="text-align: center; margin: auto;">
+    <ul data-ng-if="showPagination" class="pagination">
+        <li><a data-ng-click="previousPage(currentPage)">&laquo;</a></li>
+
+        <li data-ng-repeat="pageObj in pageObjs"><a data-ng-class="pageObj.page == currentPage ? 'text-muted' : ''" data-ng-click="changePage(pageObj.page)">{{pageObj.page + 1}}</a></li>
+
+        <li><a data-ng-click="nextPage(currentPage)">&raquo;</a></li>
+    </ul>
+</div>

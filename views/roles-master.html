@@ -1,0 +1,13 @@
+<div>
+    <div data-ng-show="viewCreateRoleActive">
+
+        <!-- **Isolate Scope** have to pass in new role object and apps -->
+        <create-role role="newRole" apps="appsDataArr"></create-role>
+    </div>
+
+    <div data-ng-show="viewRolesListActive">
+
+        <!-- Inherited Scope -->
+        <roles-list></roles-list>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-target="#filter-users-{{uniqueId}}-body">
+            <h4 class="panel-title">{{sectionTitle}}</h4>
+        </a>
+    </div>
+    <div id="filter-users-{{uniqueId}}-body" class="panel-collapse collapse">
+
+        <div class="panel-body">
+            <form role="form" class="form-inline">
+
+                <div class="row">
+                    <div class="col-xs-12">
+
+
+                        <div data-ng-hide="filterViewBy === '' ? true : false"
+                             class="form-group col-xs-12 col-sm-4">
+                            <label style="display:block" for="view-by">
+                                <small>View By</small>
+                            </label>
+                            <select class="form-control" id="view-by" data-ng-model="filterViewBy">
+                                <option value="email">Email</option>
+                                <option value="display_name">Display Name</option>
+                                <option value="id">Id</option>
+                                <!--
+                                <option value="created_on">Created Date</option>
+                                <option value="last_modified">Last Modified Date</option>
+                                -->
+                            </select>
+                        </div>
+
+                        <div style="display: inline;" class="form-group col-xs-12 col-sm-4">
+                            <label style="display:block" for="filter-by-prop">
+                                <small>Filter By</small>
+                            </label>
+                            <select class="form-control" id="filter-by-prop" data-ng-model="filterProp">
+                                <option value="email">Email</option>
+                                <option value="display_name">Display Name</option>
+                                <option value="id">Id</option>
+                                <!--
+                                <option value="created_on">Created Date</option>
+                                <option value="last_modified">Last Modified Date</option>
+                                -->
+                            </select>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4">
+                            <label style="display:block" for="filter-by-prop">
+                                <small>Filter Value</small>
+                            </label>
+                            <input style="display: inline;" class="form-control" type="text" data-ng-model="filterValue"
+                                   placeholder="Enter Filter Value">
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div style="margin-right: 10px;" class="form-group col-xs-12 col-sm-4">
+                            <label style="display:block" for="order-by">
+                                <small>Order by</small>
+                            </label>
+                            <select class="form-control" id="order-by" data-ng-model="orderBy">
+                                <option value="email">Email</option>
+                                <option value="display_name">Display Name</option>
+                                <option value="id">Id</option>
+                            </select>
+
+                        </div>
+
+                        <div style="margin-right: 5px;" class="form-group col-xs-12 col-sm-1">
+                            <label style="display:block" for="order-by-reverse">
+                                <small>Reverse</small>
+                            </label>
+                            <input type="checkbox" id="order-by-reverse" data-ng-model="orderByReverse">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

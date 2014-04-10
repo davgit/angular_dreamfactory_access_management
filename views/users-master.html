@@ -1,0 +1,12 @@
+<div>
+    <div data-ng-if="viewCreateUserActive">
+
+        <!-- **Isolate Scope** have to pass in roles and apps -->
+        <create-user user="newUser" roles="rolesDataArr" apps="appsDataArr"></create-user>
+    </div>
+    <div data-ng-if="viewUsersListActive">
+
+        <!-- Inherited Scope -->
+        <users-list></users-list>
+    </div>
+</div>

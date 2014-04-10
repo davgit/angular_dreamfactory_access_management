@@ -1,0 +1,96 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-target="#create-user-body">
+            <h4 class="panel-title">Create User</h4>
+        </a>
+    </div>
+    <div id="create-user-body" class="panel-collapse collapse in">
+        <div class="panel-body">
+
+            <div class="btn-toolbar">
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-default" data-ng-click="closeUser()">Close</button>
+                    <button type="button" class="btn btn-default" data-ng-click="createUser()">Create</button>
+                </div>
+            </div>
+
+            <hr />
+
+
+            <!-- Create User Header -->
+            <div class="col-xs-12"><h3>Create User: <span class="text-muted">{{user.display_name}}</span></h3></div>
+
+            <!-- Single User Edit Form -->
+                    <form name="create-user">
+
+                        <div class="col-xs-12 col-md-6">
+                            <div class="form-group">
+                                <label for="display-name">Display Name</label>
+                                <input class="form-control" type="text" id="display-name"
+                                       placeholder="Enter Display Name"
+                                       data-ng-model="user.display_name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input class="form-control" type="text" id="first-name" placeholder="Enter First Name"
+                                       data-ng-model="user.first_name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input class="form-control" type="text" id="last-name" placeholder="Enter Last Name"
+                                       data-ng-model="user.last_name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="email" id="email" placeholder="Enter Email"
+                                       data-ng-model="user.email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tel">Phone</label>
+                                <input class="form-control" type="tel" id="tel" placeholder="Enter Phone Number"
+                                       data-ng-model="user.phone">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input class="form-control" type="password" id="password" placeholder="Enter Password"
+                                       data-ng-model="user.password">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm</label>
+                                <input class="form-control" type="password" id="confirm-password"
+                                       placeholder="Confirm Password"
+                                       data-ng-model="user.confirm_password">
+                            </div>
+                            <div class="form-group">
+                                <label for="is-sys-admin">System Administrator</label>
+                                <input type="checkbox" id="is-sys-admin" data-ng-model="user.is_sys_admin">
+                            </div>
+                            <div class="form-group">
+                                <select-role role-model="user.role_id" roles="roles"></select-role>
+                            </div>
+
+                            <div class="form-group">
+                                <select-app app-model="user.default_app_id" apps="apps"></select-app>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="user-active">Active</label>
+                                <input type="checkbox" id="user-active" data-ng-model="user.is_active">
+                            </div>
+                        </div>
+
+                    </form>
+
+            <!-- End Single User Edit Form -->
+
+        </div>
+    </div>
+</div>
+<!-- End Single User Edit Display -->

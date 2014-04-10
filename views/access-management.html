@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="navbar navbar-default">
+        <span style="display: inline" class="navbar-brand">Access Management Module</span>
+
+        <div class="collapse navbar-collapse" id="access-management-module-nav">
+            <ul class="nav navbar-nav navbar-right">
+                <li data-ng-click="openUsersMaster()"><a>Users</a></li>
+                <li data-ng-click="openRolesMaster()"><a>Roles</a></li>
+                <li data-ng-click="openAssignMaster()"><a>Assign</a></li>
+                <li data-ng-click="openConfigMaster()"><a>Config</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Display for module sub sections -->
+
+    <div>
+        <div data-ng-show="viewUsersMasterActive">
+            <users-master></users-master>
+        </div>
+        <div data-ng-show="viewRolesMasterActive">
+            <roles-master></roles-master>
+        </div>
+        <div data-ng-show="viewAssignMasterActive">
+            <assign-user-role-master></assign-user-role-master>
+        </div>
+        <div data-ng-show="viewConfigMasterActive">
+            <config-master></config-master>
+        </div>
+    </div>
+
+    <!-- End display for module sub sections -->
+
+</div>
